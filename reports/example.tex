@@ -1,0 +1,51 @@
+% Preamble
+\documentclass[11pt,reqno,oneside,a4paper]{article}
+\usepackage[a4paper,includeheadfoot,left=25mm,right=25mm,top=00mm,bottom=20mm,headheight=20mm]{geometry}
+\input{../texhead-main} % Standard packages, page layout, theorem environments, macros, etc
+\input{../texhead-acknowledge} % Standard language for acknowledging grants.
+\input{../texhead-project} % Macros specific to this project.
+\author{NAME}
+\title{Full title}
+\renewcommand{\runningtitle}{Short title}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+% \begin{abstract}
+    % It may be appropriate to have an abstract.
+    % If so, uncomment these lines.
+% \end{abstract}
+
+% \tableofcontents
+
+% \section{Introduction} \label{sec:Introduction}
+
+Document goes here.
+Reference figures such as figure~\ref{fig:eg} as you need.
+% Use this code to insert figures.
+\begin{figure}
+    \centering
+    % Be sure to save all figures inside the gfx directory or they will NOT be tracked by git
+    \includegraphics[width=0.8\linewidth]{gfx/fig-eg}
+    \caption{An example figure}
+    \label{fig:eg}
+\end{figure}
+Cite works with~\cite{Fou1822a} and~\cite[proposition~2.12]{Xia2019a}.
+% Be sure to update the global dbrefs.bib file in the project's root directory and follow the identifier naming convention described at the start of dbrefs.bib.
+
+
+\section*{Acknowledgement}
+
+% See texHead for similar macros.
+% You can put your name explicitly as the argument, or use \theauthor, as you prefer.
+\AckYNCSRP{\theauthor}
+% Other acknowledgements can be added explicitly.
+The authors would also like to thank Joe Bloggs for valuable conversations.
+
+% \clearpage
+\bibliographystyle{amsplain}
+{\small\bibliography{../dbrefs}}
+
+\end{document}

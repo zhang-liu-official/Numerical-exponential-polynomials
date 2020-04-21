@@ -1,6 +1,6 @@
 # Numerical exponential polynomials
 
-Projects related to efficient numerical treatment of exponential polynomials in julia.
+Projects related to efficient numerical and analytic study of exponential polynomials in julia.
 
 ## Numerical locus of zeros of exponential polynomials
 
