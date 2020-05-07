@@ -85,7 +85,8 @@ Please do read the above documentation, but here is the basic idea of these tool
 
 The main language for work on this project is julia.
 You can find online tutorials for learning julia and instructions for installing the language.
-If julia is a major component of this project, you must install the language on your own computer.
+If julia is a major component of this project, you must install the language on your own computer or use the Unified Transform Lab's [jupyterhub](https://jh.dasmithmaths.com).
+See information for the latter in JUPYTERHUB.md.
 If you just want to do a few quick calculations or you want to try out julia without going to the trouble of installing julia, then follow the instructions to set up a [virtual machine](https://nc.dasmithmaths.com/index.php/s/FsTY9A9mBmBp4fs).
 
 ## Repository layout
