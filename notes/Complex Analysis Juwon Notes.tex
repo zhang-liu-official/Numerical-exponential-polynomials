@@ -1,0 +1,158 @@
+%---------DO NOT EDIT THE FOLLOWING INDENTED SECTION
+	% Preamble
+	\documentclass{article}
+	\usepackage[a4paper,includeheadfoot,left=35mm,right=35mm,top=00mm,bottom=30mm,headheight=40mm]{geometry} %sets up the margins
+	\usepackage{amssymb,amsmath,amsthm}
+	\usepackage{xcolor,graphicx}
+	\usepackage{hyperref}
+
+	\usepackage{titling}
+	\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\lhead{{\theauthor}}
+	\chead{}
+	\rhead{}
+	\lfoot{}
+	\cfoot{\thepage}
+	\rfoot{}
+
+
+	\title{Complex Analysis Notes}
+	\author{Juwon Lee}
+	\date{\today}   
+
+	\theoremstyle{definition}
+	\newtheorem{definition}{Definition}[section]
+
+	\theoremstyle{remark}
+	\newtheorem*{remark}{Remark}
+
+	
+	\newcounter{subdefinition}[definition]
+	\renewcommand{\thesubdefinition}{\thedefinition.\arabic{subdefinition}}
+	\newenvironment{subdefinition}{
+	\refstepcounter{subdefinition}
+	\par\noindent
+	\textbf{\upshape Definition \thesubdefinition}%
+	}{}
+	
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{corollary}{Corollary}[theorem]
+	\newtheorem{lemma}[theorem]{Lemma}
+	
+	\usepackage{mathtools}
+
+	\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+	\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+%----------------------------------
+
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+%-----------THIS IS WHERE THE MAIN DOCUMENT BEGINS.
+
+The goal of this document is to revise complex numbers, complex functions and analytic functions before diving into the argument principle. In addition, I aim to review my skills for LaTeX documentation. 
+
+
+\section{Complex Numbers and Functions}
+
+Cardan discovered the usefulness of imaginary numbers in computation, Euler introduced the symbol i, and Gauss recognized the importance of complex numbers. \par
+\subsection{Forms of Complex Numbers}
+\begin{enumerate}
+\item Algebraic form: $x + iy$ where $x,y$ are real numbers. x is the real part, and y is the imaginary part
+\item Geometric form of vectors: $(x,y)$
+\item Polar form: $z =r(\cos\theta + i\sin\theta)$, where $$r = \sqrt{x^2+y^2} > 0, \cos \theta = \frac{x}{r}, sin \theta = \frac{y}{r}.$$ The argument $z$ is not defined when $z=0$ or equivalently when $r=0.$
+\end{enumerate}
+
+
+
+
+\subsection{Complex Functions}
+
+\begin{definition}[Complex-valued function] $f$ of a complex variable is a relation that assigns to each complex number $z$ in a set $S$ a unique complex number $f(z).$ \par
+\end{definition}
+\begin{definition}
+The set $S$ is a subset of the complex numbers and is called the domain of definition of $f.$ \par
+\end{definition}
+
+Visualization of complex-valued functions require four dimensions: two for variable $z$ and two for the values $w=f(z).$ In reality, we use two planes, $z$-plane and $w$-plane and view the function as a mapping from a subset of one plane to the other.
+\par
+
+\subsubsection{Linear transformations }
+Linear transformations can be thought of in terms of a dilation, a rotation, and a translation, which map regions to geometrically similar regions.
+
+
+\section{Analytic Functions}
+
+Most of the theory of analytic functions is due to Augustin-Louis Cauchy.
+\par
+\begin{enumerate}
+\item Defined the derivative and integral of complex functions
+\item Defined the notion of limit for functions and gave rigorous definitions of continuity and differentiability for real-valued functions
+\item Developed groundwork for the theory of definite integrals and series 
+\item Established theoretical aspects of complex analysis with great attention to rigorous mathematical proof which characterizes pure mathematics
+\end{enumerate}
+
+
+\begin{definition}{(Neighborhoods)}
+Let $r>0$ be a positive real number and $z_0$ a point in the plane. The $r$-neighborhood of $z_0$ is the set of all complex numbers $z$ satisfying $\abs{z-z_0} < r.$ We denote this set by $B_r(z_0).$
+\end{definition}
+
+\begin{subdefinition}{. (Deleted/Punctured Neighborhood)}
+$$B'_r(z_0) = {z: 0 < \abs{z-z_0} < r}.$$
+\end{subdefinition}
+
+\begin{subdefinition}
+Let $S$ be a subset of $\mathbb{C}$.  
+\begin{enumerate}
+\item Interior point: $z_0$ is an interior point of $S$ if we can find a neighborhood of $z_0$ that is wholly contained in $S$.
+\item Boundary point: $z$ in the complex plane is called boundary point of $S$ if every neighborhood of $z$ contains at least one point in $S$ and at least one point not in $S$. 
+\item Boundary: the set of all boundary points of $S$ is called the boundary of $S$.
+\end{enumerate}
+\end{subdefinition}
+
+\begin{subdefinition}
+A subset $S$ of the complex numbers is called open if every point in $S$ is an interior point of $S$. An r-neighborhood, $B_r(z_0)$ is an open disk of radius $r$ centered at $z_0.$ Sets that contain all of their boundary points are called closed. For example, ${z: \abs{z-z_0} \leq r}$ is a closed disk. The smallest closed set that contains a set $A$ is called the closure of $A$.  
+\end{subdefinition}
+
+\begin{definition}{(Complex Derivative)}
+Let $f$ be defined on an open subset $U$ of $\mathbb{C}$ and let $z_0 \in U.$ We say that $f$ has a complex derivative at the point $z_0$ if the limit $$\lim{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}$$ exists. This is called the complex derivative of $f$ at $z_0$ and is denoted by $f'(z_0)$.
+\end{definition}
+We say that $f$ is analytic on $U$ if it has a complex derivative at every point in $U$.
+
+\begin{subdefinition}
+An analytic function defined on the complex plane is said to be entire. 
+\end{subdefinition}
+\begin{lemma}
+If $c$ is a constant, $f(z) = cz \Rightarrow f'(z) = c.$ 
+\end{lemma}
+\begin{theorem}
+An analytic function defined on an open subset of the complex plane is continuous.
+\end{theorem}
+\begin{lemma}
+Discontinuous function at $z_0$ does not have a complex derivative at $z_0.$
+\end{lemma}
+
+\begin{theorem}[Properties of Analytic Functions]
+Suppose that $f$ and $g$ are analytic functions on an open subset $U$ of the complex plane and let $c_1,c_2$ be complex constants. Then,
+\begin{enumerate}
+\item $c_1f+c_2g$ and $fg$ are analytic on $U$ and for all $z \in U$.
+\item The function $fg$ is analytic on $U$ and for all $z \in U.$
+\item The function $\frac{f}{g}$ is analytic on $W = U \setminus {w\in U : g(w) = 0}$ and for all $z\in W$, 
+$$ (\frac{f}{g})'(z) = \frac{f'(z)g(z)-f(z)g'(z)}{(g(z))^2}$$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Cauchy-Riemann Equations]
+Let $U$ be an open subset of $\mathbb{R}^2$ and let $u,v$ be real-valued functions defined on $U.$ Then the complex-valued function $f(x+iy) = u(x,y) + iv(x,y)$ is analytic on $U$ if and only if $u,v$ are differentiable functions on $U$ and satisfy $$u_x=v_y, u_y = -v_x$$ for all points in $U$. If this is the case, then for all $(x,y)\in U$, we have $$f'(x+iy) = u_x(x,y)+iv_x(x,y) \text{or} f'(x_iy) = v_y(x,y) - iu_y(x,y).$$
+\end{theorem}
+
+
+
+
+
+
+\end{document}
+
