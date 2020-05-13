@@ -13,7 +13,7 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-    This document is to serve as a set of notes to fill the gaps in my understanding of Complex Analysis relevant to the project. This is thus not intended to be comprehensive, since only the things I am currently unfamiliar with will be included. The reference book is \textit{Complex Analysis with Applications} \cite{AG2010a}.
+    This document is to serve as a set of notes to fill the gaps in my understanding of Complex Analysis relevant to the project. This is thus not intended to be comprehensive, since only the concepts I am currently unfamiliar with will be included. The reference book is \textit{Complex Analysis with Applications} \cite{AG2010a}.
 \end{abstract}
 
 % \tableofcontents
@@ -65,7 +65,7 @@ Some unfamiliar operations associated with the Cartesian form:
 	
 	\item The Absolute Identity
 	$$\abs{z} = \sqrt{z \bar{z}} \text{ or } \abs{z}^2 = z \bar{z}$$
-	and its corollaries (see AG2010a \cite{AG2010a}). 
+	and its corollaries (refer to AG2010a \cite{AG2010a}). 
 	
 	\item The Absolute Inequalities
 	$$\abs{\Re z} \leq \abs{z}, \abs{\Im z} \leq \abs{z};$$
@@ -138,16 +138,136 @@ is called the principal nth root of $w$.
 
 The principle root is obtained by taking $\phi = \text{Arg }w$ and $k=0$. 
 
+
+\section{Complex Functions}
+
+Technically, if we follow the convention for visualizing a real-valued function, then a complex function should be viewed in four-dimensional space. But that is practically impossible and not useful. Thus, we think of a complex function as a mapping from the $z$-plane to the $w$-plane, as shown in the figure below. 
+
 %Reference figures such as figure~\ref{fig:eg} as you need.
 % Use this code to insert figures.
-%\begin{figure}[htp]
-%    \centering
-    % Be sure to save all figures inside the gfx directory or they will NOT be tracked by git
-%    \includegraphics[width=0.8\linewidth]{gfx/fig-eg}
-%    \caption{An example figure}
-%    \label{fig:eg}
-%\end{figure}
+\begin{figure}[htp]
+	\centering
+	% Be sure to save all figures inside the gfx directory or they will NOT be tracked by git
+	\includegraphics[width=0.8\linewidth]{gfx/complex-function-vis.png}
+	\caption{Visualization for A Complex-valued Function}
+	\label{fig:complex-function-vis}
+\end{figure}
+\subsection{Transformations}
+\begin{enumerate}
+	\item Translations (linear). 
+	
+	Mappings of the form $z\to z+a+bi$ are \textit{translations} by $a$ units up/down, and $b$ units right/left.
+	
+	\begin{eg}
+		Let $S$ denote the disk $S = \{z:\abs{z} \leq 1\}.$ Find the image of $S$ under the mapping $f(z) = z+2+i$. 
+		
+		This function translates
+		the point z two units to the right and one unit up.
+	\end{eg} 
+	
+	\item Dilations (linear). 
+	
+	Mappings of the form $z\to rz$, where $r>0$ are \textit{dilations} by a factor $r$. 
+	
+	\item Rotations (linear).
+	
+	Mappings of the form $z \to (\cos\theta + i \sin \theta) z$ are \textit{rotations} by the angle $\theta$.
+	
+	\item Identity (linear). 
+	
+	Mappings of the form $z\to z$. 
+	
+	\item Linear Fractional Transformation or Mobius Transformation (non-linear).
+	
+	Mappings of the form $$z\to w, w = \frac{az+b}{cz+d} (ad\neq bc).$$
+	
+	\subitem A special case: inversion.
 
+	Mappings of the form $z \to \frac{1}{z}.$
+\end{enumerate}
+
+\subsection{Real and Imaginary Parts of Functions}
+
+\par For a complex function $f$, let $u = \Re f$ and $v = \Im f.$ The functions $u,v$ are real-valued functions. With a slight abuse of notation, we can write them as the function for the real part $u(x,y)$ and the function for the imaginary part $v(x,y).$
+
+The motivation behind splitting the complex function into two separate functions, one for the real part and one for the imaginary part is to help us determine algebraically the image of a set when the answer is not geometrically obvious. 
+
+\subsection{Mappings in Polar Coordinates}
+
+Some complex functions and regions are more naturally suited to polar coordinates, especially in our project (and specifically \verb|issue #40|). It is useful to express $w=f(z)$ in polar form: 
+
+$$w=\rho(\cos\phi + i \sin\phi).$$
+
+Using similar logic behind splitting a complex function into $u(x,y)$ and $v(x,y)$, we can identify the polar coordinates of $w$ with a ``modulus function" and an ``argument function," as defined:
+
+$$\rho(r,\theta ) = \abs{f(r\cos\theta + ir\sin\theta)},$$
+$$\phi(r,\theta) = \arg (f(r\cos\theta + ir\sin \theta)).$$
+
+\section{The Complex Exponential}
+
+\subsection{Complex Exponential Function: $\exp(z)$ or $e^z$}
+
+\begin{defn}
+	We define the \textit{complex exponential function} $\exp(z)$ or $e^z$ as the convergent series:
+	$$e^z = \sum_{n=0}^{\infty}\frac{z^n}{n!} = 1 + \frac{z}{1!} + \frac{z^2}{2!} +\cdots, \forall z\in \mathbb{C}.$$
+\end{defn}
+
+\begin{rmk}
+	This is exactly analogous to the real exponential function:
+	$$e^x = 1 + \frac{x}{1!} + \frac{x^2}{2!}+\cdots,$$
+	reminding us again of the idea that $\mathbb{C}$ is an extension field of $\mathbb{R}$.
+\end{rmk}
+
+Similarly, the properties of the complex exponential function follow exactly as those of the real exponential function. (refer to 1.6.3 to 1.6.5 in AG2010a \cite{AG2010a})
+
+\subsection{Euler's identity and its consequencies}
+\begin{prop}
+	(Euler's Identity)
+	If $z = i\theta,$ where $\theta$ is real, then $$e^{i\theta} = \cos\theta + i\sin\theta.$$
+\end{prop}
+
+Using Euler's identity, we can express $e^z$ in terms of the basic functions: $e^x, \cos x, \sin x,$ where $x\in \mathbb{R}$.
+
+\begin{cor}
+	For $z=x+iy,$ with $x,y$ real, we have $$e^z = e^x(\cos y + i\sin y) = e^x \cos y + i e^x\sin y.$$
+	Taking real and imaginary parts of the above, we find 
+	$$\Re(e^z) = e^x \cos y \text{ and } \Im(e^z) = e^x \sin y.$$
+\end{cor}
+
+Following from the previous discussion, we also have the facts:
+$$\abs{e^z} = e^x >0,$$
+$$\arg(e^z) = y + 2k\pi, k \in \mathbb{Z}.$$
+
+Another useful consequence of Euler's Identity is to give rise to an exponential representation of a complex number. To realize that the polar form and exponential form are in fact equivalent, refer to the figure below. 
+
+\begin{prop}
+	(Exponential Representation)
+	Let $z = r (\cos\theta + i\sin\theta)$ with $r=\abs{z} >0, \theta \in \mathbb{R}, \arg z = \theta + 2k\pi.$ Then 
+	$$z = re^{i\theta},$$
+	and its corollaries. (see 1.6..17 to 1.6.20 in AG2010a \cite{AG2010a})
+\end{prop}
+
+\subsection{The Exponential as a Mapping}
+
+The equation $\arg(e^z) = y + 2k\pi, k \in \mathbb{Z}$ discussed in the previous section has a consequence: the argument of $e^z$ is equal to the imaginary part of $z$. Because of this, we expect the exponential function to map line segments (think the imaginary axis) to circular arcs (think the arc formed due to $\theta$), and by the same logic, rectangular regions to circular regions. 
+
+%Reference figures such as figure~\ref{fig:eg} as you need.
+% Use this code to insert figures.
+\begin{figure}[htp]
+	\centering
+	% Be sure to save all figures inside the gfx directory or they will NOT be tracked by git
+	\includegraphics[width=0.4\linewidth]{gfx/exponential-rep.png}
+	\caption{Visualization for Exponential Representation}
+	\label{fig:exp-rep}
+\end{figure}
+
+\section{Relating Trigo Functions to the Exponential Function}
+
+\begin{defn}
+	For a complex number $z$, we set
+	$$\cos z = \frac{e^{iz} + e^{-iz}}{2},$$
+	$$\sin z = \frac{e^{iz} - e^{-iz}}{2i}.$$
+\end{defn}
 \bibliographystyle{amsplain}
 {\small\bibliography{../dbrefs}}
 \end{document}
