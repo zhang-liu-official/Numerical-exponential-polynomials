@@ -1,0 +1,90 @@
+
+% preamble
+\documentclass[11pt,reqno,oneside,a4paper]{article}
+\usepackage[a4paper,includeheadfoot,left=25mm,right=25mm,top=00mm,bottom=20mm,headheight=20mm]{geometry}
+\input{../texhead-main} % Standard packages, page layout, theorem environments, macros, etc
+\input{../texhead-project} % Macros specific to this project.
+\author{Juwon Lee}
+\title{Notes on the Argument Principle}
+\renewcommand{\runningtitle}{Notes on the Argument Principle}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+In complex analysis, the argument principle (or Cauchy's argument principle) relates the difference between the number of zeros and poles of a meromorphic function to a contour integral of the function's logarithmic derivative. 
+The aim of this paper is to explain the concept, but not necessarily the proofs, to someone who has completed the same MCS modules as I did.
+\end{abstract}
+
+\section{Argument Principle}
+\subsection{Introduction}
+The argument principle connects the winding number of a curve with the number of zeros and poles inside the curve. This principle is useful for mathematical applications where we want to locate the zeros and poles. 
+
+\begin{asm}
+Note that this research project will be looking specifically at holomorphic functions, hence the number of poles will be $0.$ Therefore, the argument principle will be simplified to exclusively locate zeros and not poles.
+\end{asm}
+
+\subsection{Argument Principle}
+The argument principle relates the difference between the number of zeros of a holomorphic function to a contour integral of the function's logarithmic derivative. 
+The contour integral $\oint\limits_{C} \frac{f'(z)}{f(z)}\mathrm{d}z $ can be interpreted as $2\pi i$ times the winding number of the path $f(C)$ around the origin. 
+That is, it is $i$ times the total change in the argument of $f(z)$ as $z$ travels around $C$, explaining the name of the theorem. 
+\begin{thm}{Argument Principle.}
+If $f(z)$ is a holomorphic function inside and on some closed contour $C$, and $f$ has no zeros on $C$, then 
+$$ \frac{1}{2\pi i} \oint\limits_{C} \frac{f'(z)}{f(z)}\mathrm{d}z = Z$$
+where $Z$ denote the number of zeros of $f(z)$ inside the contour $C$, with each zero counted as many times as its multiplicity and order. 
+\end{thm}
+
+For better understanding, this paper provides the definition of winding numbers, holomorphic functions, zeros, and contour integrals.
+
+
+\subsection{Supplementary Definitions}
+% Winding numbers 
+\begin{defn}{Winding numbers.}
+The winding number of a closed curve in the plane around a given point is an integer representing the total number of times that curve travels counterclockwise around the point. 
+\end{defn}
+
+Let's take a look at an example for better understanding of winding numbers and the use of the argument principle.
+\begin{prob}{Winding numbers.}
+Let $f(z) = z^2+z$. Find the winding number of $f \circ \gamma$ around $0$ for 
+$\gamma_1 =$ circle of radius $2,$ 
+$\gamma_2 =$ circle of radius $\frac{1}{2},$ and
+$\gamma_3 =$ circle of radius $1$. 
+
+\begin{enumerate}
+$f(z) = z(z+1)$ has zeros at $0$ and $-1$.
+\item For $\gamma_1,$ there are two zeros of both $0$ and $-1.$
+\item For $\gamma_2,$ there is one zero of $0$.
+\item For $\gamma_3,$ there is one zero of $0.$ $-1$ is not inside the circle, therefore it does not count.
+\end{enumerate}
+\end{prob}
+
+% Holomorphic function
+\begin{defn}{Holomorphic function.}
+A holomorphic function is a complex-valued function of one or more complex variables that is, at every point of its domain, complex differentiable in a neighborhood of the point. 
+\end{defn}
+
+% Meromorphic function definition
+\begin{defn}{Meromorphic function.}
+A meromorphic function on an open subset $D$ of the complex plane is a function that is holomorphic on all of $D$ except for a set of isolated points, which are poles of the function. 
+\end{defn}
+
+% Zero definition
+\begin{defn}{Zeros.}
+Zeros of holomorphic functions are points $z$ where $$f(z) = 0.$$
+\end{defn}
+
+% Contour integral
+\begin{defn}{Contour integral.}
+Contour integration is a method of evaluating certain integrals along the paths in the complex plane. 
+For continuous functions in the complex plane, the contour integral can be defined in analogy to the line integral by first defining the integral along a directed smooth curve in terms of an integral over a real valued parameter.
+\end{defn}
+
+\begin{ntn}{Contour integral.}
+Contour integrals are denoted by $\oint$.
+\end{ntn}
+
+
+
+\end{document}
