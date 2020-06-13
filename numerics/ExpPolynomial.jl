@@ -3,7 +3,7 @@ using SymPy
 
 struct ExpPolynomial
     ExpList::Array{ComplexF64}
-    PolyList::Array{Polynomial} 
+    PolyList::Array{Polynomial}
 end
 
 function ExpPolyConvert(x::ExpPolynomial)
@@ -34,7 +34,7 @@ function ExpPolyConvert(x::ExpPolynomial)
     newExpList = ComplexF64[]
     #empty list to store new ExpList values
     newPolyList = Polynomial[]
-    #empty list to store new PolyList values 
+    #empty list to store new PolyList values
         
     for i = 1:length(PolyList)
         #make sure CoeffList has no zero
@@ -44,7 +44,7 @@ function ExpPolyConvert(x::ExpPolynomial)
         end
     end
         
-    return (ExpPolynomial(newExpList, newPolyList))   
+    return (ExpPolynomial(newExpList, newPolyList))
         
 end
 
@@ -92,3 +92,5 @@ function expPolySym(z::Sym, x::ExpPolynomial)
     return symList
     
 end
+
+(f::ExpPolynomial)(z::Sym) = expPolySym(z, f)

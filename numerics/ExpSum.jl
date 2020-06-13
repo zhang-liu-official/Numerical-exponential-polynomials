@@ -27,7 +27,7 @@ function ExpPolyConvert(ExpList::Array{ComplexF64}, CoeffList::Array{ComplexF64}
     newExpList = ComplexF64[]
     # empty list to store new ExpList values
     newCoeffList = ComplexF64[]
-    # empty list to store new CoeffList values 
+    # empty list to store new CoeffList values
             
     for i = 1:length(CoeffList)
         # make sure CoeffList has no zero
@@ -39,7 +39,7 @@ function ExpPolyConvert(ExpList::Array{ComplexF64}, CoeffList::Array{ComplexF64}
     return (ExpSum(newExpList, newCoeffList))
 end
 
-# Evaluate exponential sum 
+# Evaluate exponential sum
 
 function expSum(z::Number, x::ExpSum)
     
@@ -56,7 +56,7 @@ end
 
 (f::ExpSum)(z::Number) = expSum(z, f)
 
-# SymPy version 
+# SymPy version
 
 function expSumSym(z::Sym, x::ExpSum)
                 
@@ -68,3 +68,5 @@ function expSumSym(z::Sym, x::ExpSum)
     return symList
     
 end
+
+(f::ExpSum)(z::Sym) = expSumSym(z, f)
