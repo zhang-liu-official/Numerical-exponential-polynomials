@@ -1,5 +1,6 @@
 include("ExpSum.jl")
 using SymPy
+using Polynomials
 
 struct ExpPolynomial
     ExpList::Array{ComplexF64}
