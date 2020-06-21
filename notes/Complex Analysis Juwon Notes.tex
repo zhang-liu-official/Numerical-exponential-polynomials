@@ -14,14 +14,15 @@
 %----------------------------------
 
 \begin{abstract}
-The goal of this document is to revise Complex Analysis relevant to the project. Thus, this document is not comprehensive on the subject. In addition, I aim to review my skills for LaTeX documentation. 
+The goal of this document is to revise Complex Analysis relevant to the project. 
+In addition, I aim to review my skills for LaTeX documentation. 
 \end{abstract}
 
 \section{Complex Numbers and Functions}
 
 \subsection{Forms of Complex Numbers}
 \begin{enumerate}
-	\item \emph{Algebraic form}: $x + iy$ where $x,y \in \RR.$ 
+	\item \emph{Algebraic form}: $x + iy$ where $x,y \in \RR.$  % \mathbb{R}  
 	\item \emph{Geometric form}: $(x,y)$.
 	\item \emph{Polar form}: $z =r(\cos\theta + i\sin\theta)$, where $$r = \sqrt{x^2+y^2} > 0, \cos \theta = \frac{x}{r}, \sin \theta = \frac{y}{r}.$$ 
 The argument $z$ is not defined when $z=0$ or equivalently when $r=0.$
@@ -58,8 +59,6 @@ In reality, we use two planes, the $z$-plane and $w$-plane and view the function
 Linear transformations can be thought of in terms of a dilation, a rotation, and a translation, which map regions to geometrically similar regions.
 
 
-
-
 % Textbook 1.6 Complex Exponential
 \subsection{Complex Exponentials}
 For $x\in \RR,$ we recall that $$e^x = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$$
@@ -91,7 +90,7 @@ This is the polar form of $e^z,$ where $\abs{e^z} = e^x$ and $\text{arg}(e^z) = 
 
 Euler's identity function is proven using Definition 3 and the power series expansions for $\cos\theta$ and $\sin\theta.$ 
 Since understanding the theorem is more important for this project than the proofs, I will not write the proof down. 
-For better understanding of the theorem, I will solve the following example using Euler's identity.
+However, to better understand the theorem, I will solve the following example using Euler's identity.
 
 \begin{eg}
 $e^{2+i\pi} =  e^2(\cos\pi + i\sin\pi) =e^2(-1+0) = -e^2.$ 
@@ -238,7 +237,7 @@ Let $U$ be an open subset of $\mathbb{R}^2$ and let $u,v$ be real-valued functio
 
 
 
-\subsection{Differentiation of Functions of Exponential and Power Functions}
+\subsection{Differentiation of Analytic Functions}
 
 \begin{thm}{Derivative of the complex exponential function.}
 Let $f(z) = e^z$ where $z\in\CC.$ Then $f$ is analytic on all of $\CC$ and $f'(z) = e^z.$
@@ -250,15 +249,18 @@ Let $f(z)=\text{Log}(z)$ where $\text{Log}(z)=\text{log}\abs{z}+i\text{Arg}(z)$ 
 Then $f$ is analytic on all of $\CC \setminus \{x+yi \in \CC : x \geq 0, y = 0\}$, and $f'(z)=\frac{1}{z}$ on this set.
 \end{thm}
 
-% Chain rule and mean value theorems, p127
-\begin{thm}{Chain rule.}
-Let $u$ be a differentiable fnction on an open subset $W$ of $\RR^2$ and let $x,y$ be differentiable functions of $t$ defined on an open interval $I$ on the real line such that $(x(t),y(t))$ lies in $W$ for all $t \in I.$ 
-Then $U(t) = u(x(t),y(t))$ is differentiable for all $t \in I$ and we have 
-$$ frac{dU}{dt} = frac{\partial u}{\partial x} \frac{dx}{dt} + frac{\partial u}{\partial y} \frac{dy}{dt}.$$
-\end{thm}
 
+Analytic functions obey the following rules. 
 
+\begin{enumerate}
+	\item Sum rule: $\frac{d}{dz} (f(z) + g(z)) = f' + g'$
+	\item Product rule: $\frac{d}{dz}(f(z)g(z)) = f'g + fg'$
+	\item Quotient rule: $\frac{d}{dz} \frac{(f(z)}{g(z)} = \frac{g'(f(z)}{g^2}$
+	\item Chain rule: $\frac{d}{dz} g(f(z)) = g'(f(z))f'(z)$
+	\item Inverse rule: $\frac{df^{-1}(z)}{dz} = \frac{1}{f'(f^{-1}(z)}$
+\end{enumerate}
 
+Therefore, it is sufficient to conclude that analytic function obey the same differentiation rules as real functions.
 
 
 
