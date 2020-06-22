@@ -249,11 +249,14 @@ Let $f(z)=\text{Log}(z)$ where $\text{Log}(z)=\text{log}\abs{z}+i\text{Arg}(z)$ 
 Then $f$ is analytic on all of $\CC \setminus \{x+yi \in \CC : x \geq 0, y = 0\}$, and $f'(z)=\frac{1}{z}$ on this set.
 \end{thm}
 
+\begin{thm}{Derivative of the complex power function.}
+Let $f(z) = z^a$ where $z\in\CC.$ Then $f$ is analytic on all of $\CC$ and $f'(z) = az^{a-1}.$
+\end{thm}
 
 Analytic functions obey the following rules. 
 
 \begin{enumerate}
-	\item Sum rule: $\frac{d}{dz} (f(z) + g(z)) = f' + g'$
+	\item Linearity of derivatives: $\frac{d}{dz} (cf(z) + dg(z)) = cf' + dg'$
 	\item Product rule: $\frac{d}{dz}(f(z)g(z)) = f'g + fg'$
 	\item Quotient rule: $\frac{d}{dz} \frac{(f(z)}{g(z)} = \frac{g'(f(z)}{g^2}$
 	\item Chain rule: $\frac{d}{dz} g(f(z)) = g'(f(z))f'(z)$
