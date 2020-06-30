@@ -14,12 +14,36 @@
 %----------------------------------
 
 \begin{abstract}
-	The purpose of this document is to give an overview of the algorithm used to spot zeros of the exponential polynomials.
-	In doing so, this document will also explain the Argument Principle, a major building block of the algorithm.
+	The argument principle connects the winding number of a curve with the number of zeros inside the curve. 
+	This principle has been applied into coding in the programming language julia to locate the zeros of big complex functions.
+	This document will give a high-level overview of the algorithm that spots the zeros of the exponential polynomials.
+	I start by explaining the argument principle and the reason for using julia before explaining the code.
 \end{abstract}
 
 \section{The Argument Principle}
 	
+\begin{defn}{Holomorphic function.}
+A holomorphic function is a complex-valued function of one or more complex variables that is, at every point of its domain, complex differentiable in a neighborhood of the point. 
+\end{defn}
+
+Note that this research project will be looking specifically at holomorphic functions, hence the number of poles will be $0.$ 
+Therefore, the argument principle will be simplified to exclusively locate zeros and not poles.
+
+\begin{thm}
+The argument principle relates the difference between the number of zeros of a holomorphic function to a contour integral of the function's logarithmic derivative. 
+The contour integral $\oint\limits_{C} \frac{f'(z)}{f(z)}\mathrm{d}z $ can be interpreted as $2\pi i$ times the winding number of the path $f(C)$ around the origin. 
+\end{thm}
+
+That is, it is $i$ times the total change in the argument of $f(z)$ as $z$ travels around $C$, explaining the name of the theorem. 
+The goal of the implementation is to spot the zeros of the analytic function within the input area, given in the shape of a rectangle.
+The next section explains the data structures and functions built on the logic of the argument principle.
+
+\section{Why Julia?}
+Julia is a high-level, open-source, dynamically-typed programming language developed in 2012.
+It was designed to excel at scientific and numerical computing allowing faster compilation than the existing languages such as C, or Python.
+This is possible due to the Just-In-Time (JIT) compilation method, where every statement is run using compiled functions which are either compiled right before they are used, or cached from before.
+
+Once the size of the exponential polynomials outgrow one that can be solved by hand, julia will allow for an efficient and fast way to locate the zeros of the exponential polynomial.
 
 
 \section{High-level Overview of the Implementation}
@@ -36,16 +60,27 @@
 	\begin{enumerate}
 		\item \emph{parseInput}: 
 		This function takes in the bottom left coordinate and the top right coordinate of the rectangle and calculates the height and width of the rectangle. 
-		In addition, it adjusts the step by dividing height by n, set as 2000 after numerous tries. 
-		This was set so that the number of the argument evaluations will be comprehensive of the number of zeros.
+		If the step of the loop is too big, it may miss certain jumps and not detect the correct number of zeros of the analytic function.
+		To avoid this, I tested the function with unit tests and set the parameter of $n$ to $2000.$ 
 		
 		\item \emph{argBox}:
-		This function evaluates the arguments along the borders of the rectangle. 
+		This function evaluates the arguments along the borders of the rectangle in the analytic function. 
 		It starts the evaluation with the bottom left coordinate, and increments the steps by the floating point stored in the struct Step. 
 		In the same way, the other three borders of the rectangle are evaluated and stored into the resulting array. 
-		To make sure the argument evaluation was closed on the rectangle, I added the argument evaluation of the starting coordinate, in this case, the bottom left coordinate at the end of the code. 
+		To make sure the argument evaluation was closed on the rectangle, at the end of the code, I added the argument evaluation of the starting coordinate which in this case is the bottom left coordinate.
+		
+		\item \emph{countJump}: 
+		This function takes in the array of arguments that were evaluated using the function argBox and counts the number of jumps.
+		I set the parameter to be $-4$ which is slightly less than $-2\pi$ at first because the start of a point may not be exactly at $\pi$ or $-\pi.$ 
+		
+		\item \emph{divideRec}:
+		This recursive function subdivides the input rectangle into four sub-rectangles.
+		It runs the recursion until I obtain the bottom left coordinate of each of the zeros. 
+		
+		
 	\end{enumerate}
 
 \section{Testing}
+
 
 \end{document}
