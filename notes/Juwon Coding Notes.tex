@@ -4,8 +4,8 @@
 \input{../texhead-main} % Standard packages, page layout, theorem environments, macros, etc
 \input{../texhead-project} % Macros specific to this project.
 \author{Juwon Lee}
-\title{Notes on Coding}
-\renewcommand{\runningtitle}{Notes on Coding}
+\title{Code Report}
+\renewcommand{\runningtitle}{Code Report}
 \date{\today}
 
 \begin{document}
@@ -14,10 +14,38 @@
 %----------------------------------
 
 \begin{abstract}
-The purpose of this document is to give an overview of the algorithm used to spot zeros of the exponential polynomials.
-In doing so, this document will also explain the Argument Principle, a major building block of the algorithm.
+	The purpose of this document is to give an overview of the algorithm used to spot zeros of the exponential polynomials.
+	In doing so, this document will also explain the Argument Principle, a major building block of the algorithm.
 \end{abstract}
 
+\section{The Argument Principle}
+	
 
+
+\section{High-level Overview of the Implementation}
+\subsection{Data Structure}
+	The first struct Rect stores two coordinates of the input rectangle. 
+	The type of the two inputs are tuples of floats.
+	The reason I take two coordinates instead of four coordinates of the rectangle is to ensure that the inputs lead to rectangles instead of error checking that four coordinates are in the shape of a rectangle. 
+	
+	The second struct Step stores the information of the height, width, and stepping points of the rectangle stored in Rect, all of them of type float.
+	The stepping points called step decides the gap between the point in the rectangle to evaluate and the next. 
+	This is adjusted accordingly in the function parseInput, explained in the next subsection. 
+	
+\subsection{Functions}
+	\begin{enumerate}
+		\item \emph{parseInput}: 
+		This function takes in the bottom left coordinate and the top right coordinate of the rectangle and calculates the height and width of the rectangle. 
+		In addition, it adjusts the step by dividing height by n, set as 2000 after numerous tries. 
+		This was set so that the number of the argument evaluations will be comprehensive of the number of zeros.
+		
+		\item \emph{argBox}:
+		This function evaluates the arguments along the borders of the rectangle. 
+		It starts the evaluation with the bottom left coordinate, and increments the steps by the floating point stored in the struct Step. 
+		In the same way, the other three borders of the rectangle are evaluated and stored into the resulting array. 
+		To make sure the argument evaluation was closed on the rectangle, I added the argument evaluation of the starting coordinate, in this case, the bottom left coordinate at the end of the code. 
+	\end{enumerate}
+
+\section{Testing}
 
 \end{document}
