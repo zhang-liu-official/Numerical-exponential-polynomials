@@ -1,0 +1,76 @@
+% Preamble
+\documentclass[11pt,reqno,oneside,a4paper]{article}
+\usepackage[a4paper,includeheadfoot,left=25mm,right=25mm,top=00mm,bottom=20mm,headheight=20mm]{geometry}
+\input{../texhead-main} % Standard packages, page layout, theorem environments, macros, etc
+\input{../texhead-project} % Macros specific to this project.
+\author{Wang Yanhua}
+\title{Learning Langer's Method}
+\renewcommand{\runningtitle}{Learning Langer's Method}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\section{}
+
+\begin{align*}
+\cos(3x) &= \frac{1}{2}(e^{3ix} + e^{-3ix}) \iff\\
+2e^{3ix} \cos(3x) &= (e^{6ix} + 1) \\
+&= (1 \cdot (e^{6ix})^0  + 1 \cdot (e^{6ix})^1). \\
+\intertext{By Langer's method,}
+x &= \frac{1}{6i}\{2m \pi i + \log(-1)\} , (m=0, \pm 1, \pm 2, \cdots)\\
+&= \frac{1}{6i}\{2m \pi i + i\pi\}\\
+&=  \frac{1}{6}\{(2m+1)\pi\}.
+\end{align*}
+
+\section{}
+
+As $\lim_{x \to \infty}   e^{-x} = 0 \text{ on the positive real axis}, \lim_{x \to \infty} \sin(x)+e^{-x} = \sin(x).$
+\begin{align*}
+\sin(x) &= \frac{1}{2i}(e^{ix}-e^{-ix}) \iff \\
+2ie^{ix} (\sin(x)) &= (e^{2ix} - 1) \\
+&=  (-1 \cdot (e^{2ix})^0 + 1 \cdot (e^{2ix})^1).\\
+\intertext{By Langer's method,}
+x &= \frac{1}{2i}\{2m \pi i + \log(1)\}  , (m=0, \pm 1, \pm 2, \cdots)\\
+&= \frac{1}{2i}\{2m \pi i + 0\} \\
+&= \{m \pi\}.
+\end{align*}
+
+\section{}
+
+\begin{align*}
+\sin(x) + \sinh(x) &= \frac{1}{2i}(e^{ix}-e^{-ix}) + \frac{1}{2}(e^x-e^{-x}).
+\intertext{1st normal: } 
+-2ie^{ix}(-\frac{1}{2i}e^{-ix} - \frac{1}{2}e^{-x})&=1 + ie^{ix-x}\\
+&= ie^{(i-1)x} + 1.
+\intertext{By Langer's method,}
+x &= \frac{1}{i-1}\{2m \pi i + \log(i)\}  , (m=0, \pm 1, \pm 2, \cdots)\\
+&= \frac{1}{i-1}\{2m \pi i + i\frac{\pi}{2}\}\\
+&= \frac{1}{i-1}\{(2m+\frac{1}{2})i\pi\}.
+\intertext{2nd normal: }
+2ie^{ix}(-\frac{1}{2i}e^{-ix} + \frac{1}{2}e^{x}) &= -1 + ie^{ix+x}\\
+&= ie^{(i+1)x} - 1.
+\intertext{By Langer's method,}
+x &= \frac{1}{i+1}\{2m \pi i + \log(-i)\}  , (m=0, \pm 1, \pm 2, \cdots)\\
+&= \frac{1}{i+1}\{2m \pi i + i\frac{3\pi}{2}\}\\
+&= \frac{1}{i+1}\{(2m+\frac{3}{2})i\pi\}.
+\intertext{3rd normal: }
+2ie^{-ix}(\frac{1}{2i}e^{ix} + \frac{1}{2}e^{x}) &= 1 + ie^{x-ix}\\
+&= ie^{(1-i)x} + 1.
+\intertext{By Langer's method,}
+x &= \frac{1}{1-i}\{2m \pi i + \log(-i)\}  , (m=0, \pm 1, \pm 2, \cdots)\\
+&= \frac{1}{1-i}\{2m \pi i + i\frac{3\pi}{2}\}\\
+&= \frac{1}{1-i}\{(2m+\frac{3}{2})i\pi\}.
+\intertext{4th normal: }
+2ie^{-ix}(\frac{1}{2i}e^{ix} + \frac{1}{2}e^{x}) &= 1 + ie^{x-ix}\\
+&= 1+ie^{(1-i)x}.
+\intertext{By Langer's method,}
+x &= \frac{1}{1-i}\{2m \pi i + \log(i)\}  , (m=0, \pm 1, \pm 2, \cdots)\\
+&= \frac{1}{1-i}\{2m \pi i + i\frac{\pi}{2}\}\\
+&= \frac{1}{1-i}\{(2m+\frac{1}{2})i\pi\}.
+\end{align*}
+
+
+
+\end{document}

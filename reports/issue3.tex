@@ -1,0 +1,30 @@
+% Preamble
+\documentclass[11pt,reqno,oneside,a4paper]{article}
+\usepackage[a4paper,includeheadfoot,left=25mm,right=25mm,top=00mm,bottom=20mm,headheight=20mm]{geometry}
+\input{../texhead-main} % Standard packages, page layout, theorem environments, macros, etc
+\input{../texhead-project} % Macros specific to this project.
+\author{Wang Yanhua}
+\title{Quantitative Asymptotics}
+\renewcommand{\runningtitle}{Quantitative Asymptotics}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\section*{Error bounds}
+
+The 1st degree Taylor polynomial for $\sin (x)$ at each $x_k$ is 
+$$\sin(k\pi) + \cos(k\pi) (x-k\pi).$$
+The error bound for it is 
+$$ \frac{\max(-\sin(c))}{2}(x_k - k\pi)^2,$$ 
+where $c$ is between $k\pi$ and $x_k$. The absolute value of $-\sin(x_k)$ is always larger than $\sin(k\pi) =0$, hence $c = x_k$. Hence, the error bound is 
+$$\abs{-\frac{\sin(x_k)}{2}(x_k - k\pi)^2}.$$
+
+The 1st degree Taylor polynomial for  $e^{-x}$ at each $x_k$ is
+$$e^{-k\pi} - e^{-k\pi}(x-k\pi). $$
+The error bound for it is $$ \frac{\max(e^{-c})}{2}(x_k - k\pi)^2,$$ where $c$ is between $k\pi$ and $x_k$. $e^{-k\pi}$ is larger when $k$ is an even number, while $e^{-x_k}$ is larger when $k$ is an odd number.
+
+The error bounds on the linear approximation solutions for $\sin (x) - e^{-x} = 0$ is hence $$\abs{-\frac{\sin(x_k)}{2}(x_k - k\pi)^2}+ \frac{e^{-k\pi}}{2}(x_k - k\pi)^2 $$ when $k$ is even, and  $$\abs{-\frac{\sin(x_k)}{2}(x_k - k\pi)^2} +  \frac{e^{-x_k}}{2}(x_k - k\pi)^2$$ when $k$ is odd.
+
+\end{document}
