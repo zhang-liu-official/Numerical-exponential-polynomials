@@ -114,7 +114,7 @@ We define the polar form formally:
 	$$\frac{z_1}{z_2} = \frac{r_1}{r_2} (\cos(\theta+1 - \theta_2) + i\sin(\theta_1-\theta_2)).$$
 \end{itemize}
 
-\subsection{Roots of Complex Numbers}
+\subsection{Roots of Unity and Solving Equations}
 
 \begin{defn}
 	Let $w\neq 0$ be a complex number and $n$ a positive integer. 
@@ -126,20 +126,49 @@ We define the polar form formally:
 	(De Moivre's Identity) $(\cos \theta +i\sin \theta)^n = \cos n \theta + i\sin n \theta$.
 \end{prop}
 
-Let $w = \rho (\cos \phi + i\sin \phi) \neq 0.$ The $n$th roots of $w$ are the solutions of the equation $z^n= w$. These are
-$$z_{k+1} = \rho^{\frac{1}{n}}(\cos(\frac{\phi}{n}+\frac{2k\pi}{n})+ i\sin(\theta_1 +\theta_2)),$$
-where $k = 0,1,\dots,n-1$.
+\begin{rmk}
+	Why is de Moivre's formula so significant?
+	
+	As a result of this work, the credibility of the ``fundamental theorem of algebra” was significantly enhanced, since the objection that Leibniz had raised was definitely answered: it was clear that extraction of roots of complex numbers does not produce imaginary numbers of a new kind. Moreover, since equations of degree at most 4 can be solved by radicals, it follows from de Moivre’s result that polynomials of degree at most 4 split into products of linear factors over the field of complex numbers.  \cite{Tig2016a}.
+\end{rmk}
 
-The unique number $z$ such that 
-$$z^n =w \text{ and Arg }z = \frac{\text{Arg }w}{n},$$
-is called the principal $n$th root of $w$.
+\begin{prop}
+	Let $w = \rho (\cos \phi + i\sin \phi) \neq 0.$ The $n$th roots of $w$ are the solutions of the equation $z^n= w$. These are
+	$$z_{k+1} = \rho^{\frac{1}{n}}(\cos(\frac{\phi}{n}+\frac{2k\pi}{n})+ i\sin(\theta_1 +\theta_2)),$$
+	where $k = 0,1,\dots,n-1$.
+\end{prop}
 
-The principle root is obtained by taking $\phi = \text{Arg }w$ and $k=0$. 
+\begin{prop}
+	For any positive integer $n$, the $n$ distinct $n$-th roots of $a+bi$ are 
+	$$\sqrt[\leftroot{-2}\uproot{2}{2n}]{a^2+b^2}(cos\frac{\varphi+2k\pi}{n} + isin\frac{\varphi+2k\pi}{n})$$
+	for $k = 0,\dots,n-1.$
+\end{prop}
 
 \begin{rmk}
+	From this proposition, it should be observed that, in a rectangular coordinate system, the points $(cos\frac{2k\pi}{n}, sin\frac{2k\pi}{n})$ for $k = 0, 1, . . . , n-1,$ which represent the $n$-th roots unity in the planar representation of $\mathbb{C}$, are the vertices of a regular polygon with $n$ sides: they divide the unit circle into $n$ equal parts. For this reason, the theory which is concerned with n-th roots of unity or with the values of the cosine and sine functions at $2k\pi$ $n$ for integers $k, n$, is called \textbf{\textit{cyclotomy}}, meaning literally ``division of the circle" [into equal parts].
+	
+	 Likewise, the $n$-th roots of any non-zero complex number are represented in the plane of complex numbers by the vertices of a regular $n$-gon, as the above proposition shows. That the roots of $1$ deserve special interest comes from the fact that, if an $n$-th root $u$ of some complex number $v$ has been found, then the various determinations of $\sqrt[\leftroot{-2}\uproot{2}{n}]{v}$ are the products $\omega u$, where $\omega$ runs over the set of $n$-th roots of unity. This readily follows from 
+	$$(\omega u)^n = \omega^nu^n = 1 \cdot un = v$$
+	or, equivalently, from the above proposition. \cite{Tig2016a}
+\end{rmk}
+
+\begin{defn}
+	The unique number $z$ such that 
+	$$z^n =w \text{ and Arg }z = \frac{\text{Arg }w}{n},$$
+	is called the principal $n$th root of $w$.
+	
+	The principle root is obtained by taking $\phi = \text{Arg }w$ and $k=0$. 
+\end{defn}
+
 A more obvious motivation behind finding the roots of complex numbers is that every complex number has $n$ $n$th roots. A more fundamental motivation for finding the nth roots is to solve polynomial equations of higher degrees. 
 
 While learning on this topic, I have found the discussions on the roots of unity useful in helping develop a better intuition. The following is inspired by the lecture notes by H. Lee \cite{Lee2015a}. 
+
+\begin{defn}
+	A complex number $\xi$ is called an $n$-th root of unity, for some integer $n$, if $\xi^n = 1.$
+	
+	The set of all $n$-th roots of unity is denoted by $\mu_n.$
+\end{defn}
 
 The $n$th roots of unity, i.e., roots of 1, satisfy the equation
 $$x^n -1 = 0.$$
@@ -152,7 +181,6 @@ The above facts that the sum of the $n$th roots of unity satisfy the equations a
 This links back to the very reason why complex numbers were first developed: to solve cubic polynomial equations. The usefulness of complex numbers stands out especially in the case where a problem (for example a differential equation) requires us to solve a polynomial equation that may not have real solutions as an intermediate step. Knowing how to work with complex numbers allows us to proceed just as in the real case. 
 
 The above discussion then leads to this final remark that this concept is especailly important in the research on Unifrom Tranform Method because we are ultimately interested in a particular exponential polynomial of higher degree that may require us to solve equations that involve the $n$th roots. 
-\end{rmk}
 
 \section{Complex Functions}
 
