@@ -86,8 +86,10 @@ function rank(z::Number, x::ExpSum)
     ##print(length(InnerProductList)," ",length(x.ExpList))
 
     for i = 1:length(InnerProductList)
+        value = InnerProductList[i][1]
         index = InnerProductList[i][2]
-        println("Rank ", i, ": ", index, "th term in the ExpSum; Exponent ", x.ExpList[index], "; Coefficient ", x.CoeffList[index])
+        println("Rank ", i, ": ", "inner product = ", value)
+        println("        ", index, "th term in the exponential sum; exponent = ", x.ExpList[index], "; coefficient = ", x.CoeffList[index])
         print("\n")
     end
 end
