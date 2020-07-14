@@ -42,10 +42,82 @@
 
 
 \subsection{The Collinear Case}\label{subsec:algcol}
+
+In this section, we apply the algebraic method under the collinear case where we are given $e^{az}+a^{bz} + a^{cz}, a\neq b \neq c, a,b,c \in \mathbb{C}, a,b,c$ are collinear. 
+
+Calculating the ratio of terms pairwise, we get:
+$$R_1 = \abs{\frac{e^{cz}}{e^{az}}} = \abs{e^{(c-a)z}},$$
+$$R_2 = \abs{\frac{e^{bz}}{e^{az}}} = \abs{e^{(b-a)z}},$$
+$$R_3 = \abs{\frac{e^{bz}}{e^{cz}}} = \abs{e^{(b-c)z}}.$$
+
+Note that without loss of generality, we suppose that $c$ lies on the segment $(a,b), i.e.,$
+
+(insert figure)
+
+Now, let $\alpha_1 = \arg(c-a), \alpha_2 = \arg(b-a), \alpha_3 = \arg(b-c).$
+
+Since $a,b,c$ are collinear,
+\begin{align*}
+&\frac{c-a}{b-a} = \lambda, \lambda \in \mathbb{R}\\
+\implies &\frac{r_1 e^{i\alpha_1}}{r_2 e^{i\alpha_2}} = \lambda \\
+\implies &\frac{r_1}{r_2} e^{i(\alpha_1 - \alpha_2)} = \lambda.
+\end{align*}
+Since $\lambda\in\mathbb{R}, \alpha_1 - \alpha_2 = 0 \implies \alpha_1 = \alpha_2.$
+
+By a similar argument, $\alpha_3 = \alpha_1 = \alpha_2.$
+
+Thus, given that $a,b,c\in \mathbb{C}$ collinear, we can first compute any one of the $\arg(c-a),\arg(b-a),\arg(b-c)$ and note the result as $\alpha.$
+
+Then, when $-\frac{\pi}{2} -\alpha < \theta < \frac{\pi}{2} - \alpha$, 
+\begin{align*}
+&e^{bz} > e^{az}, \\
+&e^{bz} > e^{cz}, \\
+&e^{cz} > e^{az}, \\
+\implies &e^{bz} \text{ dominates.}
+\end{align*}
+
+Otherwise, 
+\begin{align*}
+&e^{bz} < e^{az}, \\
+&e^{bz} < e^{cz}, \\
+&e^{cz} < e^{az}, \\
+\implies &e^{az} \text{ dominates.}
+\end{align*}
+ 
 \subsection{The Non-Collinear Case}\label{subsec:algnoncol}
+
+In this section, we apply the algebraic method under the non-collinear case where we are given $e^{az}+a^{bz} + a^{cz}, a\neq b \neq c, a,b,c \in \mathbb{C}, a,b,c$ are not collinear.
+
+Without loss of generality, we label the points $a,b,c$ in counter-clockwise direction. 
+
+Let 
+$$\alpha_1 = \arg(b-a) \text{ (the angle from a to b)},$$
+$$\alpha_2 = \arg(c-b) \text{ (the angle from b to c)},$$
+$$\alpha_3 = \arg(a-c) \text{ (the angle from c to a)}.$$
+Since $a,b,c$ are not collinear, $\alpha_1 \neq \alpha_2 \neq \alpha_3.$
+
+From the workings in the collinear case, we get:
+\begin{itemize}
+	\item When $\theta \in I_1 = \left(-\frac{\pi}{2} - \alpha_1, \frac{\pi}{2}-\alpha_1\right), e^{bz}>e^{az}.$
+	Otherwise (i.e., when $\theta \in (-\pi,\pi)\ I_1), e^{bz}<e^{az}.$
+	
+	\item When $\theta \in I_2 = \left(-\frac{\pi}{2} - \alpha_2, \frac{\pi}{2}-\alpha_2\right), e^{cz}>e^{bz}.$
+	Otherwise (i.e., when $\theta \in (-\pi,\pi)\ I_2),  e^{cz}<e^{bz}.$
+	
+	\item When $\theta \in I_3 = \left(-\frac{\pi}{2} - \alpha_3, \frac{\pi}{2}-\alpha_3\right), e^{az}>e^{cz}.$
+	Otherwise (i.e., when $\theta \in (-\pi,\pi)\ I_3),  e^{az}<e^{cz}.$
+\end{itemize}
+
+Overall, 
+\begin{itemize}
+	\item when $\theta \in I_1 \cap \left((-\pi,\pi) \ (I_2\cup I_3)\right), e^{bz}$ dominates,
+	\item when $\theta \in I_2 \cap \left((-\pi,\pi) \ (I_1\cup I_3)\right), e^{cz}$ dominates,
+	\item when $\theta \in I_3 \cap \left((-\pi,\pi) \ (I_1	\cup I_2)\right), e^{az}$ dominates.
+\end{itemize}
+
 \subsection{The General Case}\label{subsec:alggen}
 
-Given an exponential sum of the general form, $f(z) = \sum_{k=1}^{n}e^{a_k z},$ the algebraic method consists of the following steps:
+In this section, we apply the algebraic method under the most general case where we are given an exponential sum of the general form, $f(z) = \sum_{k=1}^{n}e^{a_k z}, a_k \in \mathbb{C}$. The algebraic method consists of the following steps:
 
 \begin{enumerate}
 	\item Given the set of exponents $\{a_k\}$, find the set of their respective complex conjugates $\{\overline{a_k}\}$.
