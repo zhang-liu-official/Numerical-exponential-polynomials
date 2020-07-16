@@ -40,8 +40,29 @@
 	\end{enumerate}
 \section{The Algebraic Method}\label{sec:alg} 
 
+\subsection{Rank Two Terms}
+In this section, we apply the algebraic method under the simplest case, where we are given $f(z) = e^{az} + e^{bz}, a,b\in \mathbb{C}.$ 
 
-\subsection{The Collinear Case}\label{subsec:algcol}
+Let $z = re^{i\theta}, \alpha = \arg(a-b),$ we have:
+
+\begin{align*}
+R &= \abs{\frac{e^{az}}{e^{bz}}}\\
+  &= \abs{e^{(a-b)z}}\\
+  &= \abs{e^{(a-b)re^{i\theta}}}\\
+  &= \abs{e^{r(\cos(\alpha + \beta)+ i \sin(\alpha + \beta))}} \text{ (by Euler's Formula)}.
+\end{align*}
+If the term $e^{az}$ in the numerator of the ratio $R$ above dominates, we must have that 
+\begin{align*}
+	&\cos(\alpha + \theta) > 0\\
+	\implies& -\frac{\pi}{2} < \alpha + \theta < \frac{\pi}{2}\\
+	\implies& -\frac{\pi}{2} - \alpha < \theta < \frac{\pi}{2} - \alpha.
+\end{align*}
+
+Therefore, given $a,b\in\mathbb{C}, f(z) = e^{az} + e^{bz},$ we first compute $\arg(a-b)$ and note the result as $\alpha.$ 
+
+Then when $-\frac{\pi}{2} - \alpha < \theta < \frac{\pi}{2} - \alpha, e^{az}$ dominates. Otherwise, $e^{bz}$ dominates. 
+
+\subsection{Rank Three Terms: The Collinear Case}\label{subsec:algcol}
 
 In this section, we apply the algebraic method under the collinear case where we are given $e^{az}+a^{bz} + a^{cz}, a\neq b \neq c, a,b,c \in \mathbb{C}, a,b,c$ are collinear. 
 
@@ -84,7 +105,7 @@ Otherwise,
 \implies &e^{az} \text{ dominates.}
 \end{align*}
  
-\subsection{The Non-Collinear Case}\label{subsec:algnoncol}
+\subsection{Rank Three Terms: The Non-Collinear Case}\label{subsec:algnoncol}
 
 In this section, we apply the algebraic method under the non-collinear case where we are given $e^{az}+a^{bz} + a^{cz}, a\neq b \neq c, a,b,c \in \mathbb{C}, a,b,c$ are not collinear.
 
