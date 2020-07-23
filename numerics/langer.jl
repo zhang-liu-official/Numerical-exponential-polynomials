@@ -152,10 +152,6 @@ function getLocus(x::Array{Array{Float64,1},1}, d::Dict{Array{Float64,1}, ExpSum
     end
 end
 
-
-
-
-
 # Testing
 
 a = ExpSum(Complex{Float64}[1.0 + 0.0im, 2.0 + 1.0im, 3.0 + 0.0im, 2.0 + 0.0im], Complex{Float64}[2.45 + 0.0im, 5.0 + 1.0im, 7.01 + 0.0im, 7.01 + 0.0im])
